@@ -16,4 +16,7 @@ return require('packer').startup(function()
         'neoclide/coc.nvim',
         branch = 'release'
     }
+    use {
+        'noib3/nvim-cokeline'
+    }
 end)
