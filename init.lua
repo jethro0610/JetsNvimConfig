@@ -9,4 +9,7 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.updatetime = 300
 vim.o.termguicolors = true
 
+vim.keymap.set('n', '<C-s>', ':w<CR>')
+vim.keymap.set('n', '<C-x>', ':bd<CR>')
+
 require('plugins')
