@@ -19,4 +19,5 @@ return require('packer').startup(function()
     use {
         'noib3/nvim-cokeline'
     }
+    use 'kalvinpearce/ShaderHighlight'
 end)
