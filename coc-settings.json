@@ -1,5 +1,6 @@
 {
     "semanticTokens.enable": true,
     "semanticTokens.filetypes": ["*"],
-    "suggest.noselect": true
+    "suggest.noselect": true,
+    "inlayHint.enable": false
 }
