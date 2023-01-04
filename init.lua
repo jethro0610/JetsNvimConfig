@@ -12,4 +12,5 @@ vim.o.termguicolors = true
 vim.keymap.set('n', '<C-s>', ':w<CR>')
 vim.keymap.set('n', '<C-x>', ':bd<CR>')
 
+vim.api.nvim_command('autocmd BufRead,BufNewFile *.hlsli setfiletype hlsl')
 require('plugins')
