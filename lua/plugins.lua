@@ -20,4 +20,10 @@ return require('packer').startup(function()
         'noib3/nvim-cokeline'
     }
     use 'kalvinpearce/ShaderHighlight'
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 end)
