@@ -38,6 +38,9 @@ require('cokeline').setup({
             fg = function(buffer) return buffer.devicon.color end,
         },
         {
+            text = function(buffer) return buffer.index .. ': ' end,
+        },
+        {
             text = function(buffer) return buffer.filename .. ' ' end,
         },
         {
@@ -55,3 +58,9 @@ require('cokeline').setup({
         }
     },
 })
+
+vim.keymap.set('n', '<S-Tab>', '<Plug>(cokeline-focus-prev)', { silent = true })
+vim.keymap.set('n', '<Tab>', '<Plug>(cokeline-focus-next)', { silent = true })
+for i = 1,9 do
+  vim.keymap.set('n', ('g%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i), { silent = true })
+end
