@@ -1,7 +1,10 @@
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
-	use 'ellisonleao/gruvbox.nvim'
-    --use 'folke/lsp-colors.nvim'
+    use 'sainnhe/everforest'
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
 	use {
 		'nvim-tree/nvim-tree.lua',
 		requires = {
@@ -11,10 +14,6 @@ return require('packer').startup(function()
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/plenary.nvim'}}
-    }
-    use {
-        'neoclide/coc.nvim',
-        branch = 'release'
     }
     use {
         'noib3/nvim-cokeline'

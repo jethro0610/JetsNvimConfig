@@ -3,22 +3,22 @@ local get_hex = require('cokeline/utils').get_hex
 function getPrimary(buffer)
     return
         buffer.is_focused
-        and get_hex('ColorColumn', 'bg')
+        and get_hex('TabLineSel', 'fg')
         or get_hex('Normal', 'fg')
 end
 
 function getSecondary(buffer)
     return
         buffer.is_focused
-        and get_hex('Normal', 'fg')
-        or get_hex('ColorColumn', 'bg')
+        and get_hex('TabLineSel', 'bg')
+        or get_hex('Normal', 'bg')
 end
 
 function getBackground(buffer)
     return
         buffer.is_focused
-        and get_hex('ColorColumn', 'bg')
-        or get_hex('ColorColumn', 'bg')
+        and get_hex('TabLine', 'bg')
+        or get_hex('TabLine', 'bg')
 end
 
 require('cokeline').setup({
@@ -44,13 +44,9 @@ require('cokeline').setup({
             text = function(buffer) return buffer.filename .. ' ' end,
         },
         {
-            text = '',
-            delete_buffer_on_left_click = true,
-        },
-        {
             text = '',
             fg = function(buffer) return getSecondary(buffer) end,
-            bg = function(buffer) return getBackground(buffer) end
+            bg = function(buffer) return getBackground(buffer) end,
         },
         {
             text = ' ',
@@ -62,5 +58,5 @@ require('cokeline').setup({
 vim.keymap.set('n', '<S-Tab>', '<Plug>(cokeline-focus-prev)', { silent = true })
 vim.keymap.set('n', '<Tab>', '<Plug>(cokeline-focus-next)', { silent = true })
 for i = 1,9 do
-  vim.keymap.set('n', ('g%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i), { silent = true })
+  vim.keymap.set('n', ('t%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i), { silent = true })
 end
