@@ -1,28 +1,15 @@
 local vim = vim
 local lsp = require 'lspconfig'
-local cmp = require 'cmp'
 
 vim.opt.signcolumn = 'yes'
 lsp.clangd.setup{}
 
-cmp.setup({
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' }
-    }),
-    mapping = {
-        ['<Tab>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            else
-                fallback()
-            end
-        end,
-        ['<S-Tab>'] = function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            else
-                fallback()
-            end
-        end
-    }
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+  end
 })
