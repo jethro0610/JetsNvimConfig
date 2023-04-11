@@ -5,6 +5,7 @@ return require('packer').startup(function()
 
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/nvim-cmp'
+    use 'ray-x/lsp_signature.nvim'
 
     use {
         'nvim-treesitter/nvim-treesitter',

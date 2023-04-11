@@ -6,8 +6,12 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-    }, 
-    {
-      { name = 'buffer' },
-    })
+    }),
+    formatting = {
+        format = function(entry, vim_item)
+            vim_item.abbr = string.sub(vim_item.abbr, 1, 32)
+            return vim_item
+        end
+    }
 })
+vim.o.pumheight = 8
