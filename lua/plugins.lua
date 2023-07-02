@@ -21,9 +21,16 @@ return require('packer').startup(function()
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/plenary.nvim'}}
     }
-    use {
-        'noib3/nvim-cokeline'
-    }
+    use({
+        'willothy/nvim-cokeline',
+        requires = {
+          "nvim-lua/plenary.nvim",        -- Required for v0.4.0+
+          "kyazdani42/nvim-web-devicons", -- If you want devicons
+        },
+        config = function()
+          require("cokeline").setup()
+        end
+      })
     use 'kalvinpearce/ShaderHighlight'
     use {
         'numToStr/Comment.nvim',

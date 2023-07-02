@@ -28,10 +28,13 @@ require('cokeline').setup({
     },
 
     components = {
+        -- {
+        --     text = '',
+        --     fg = function(buffer) return getSecondary(buffer) end,
+        --     bg = function(buffer) return getBackground(buffer) end,
+        -- },
         {
-            text = '',
-            fg = function(buffer) return getSecondary(buffer) end,
-            bg = function(buffer) return getBackground(buffer) end,
+            text = ' '
         },
         {
             text = function(buffer) return buffer.devicon.icon end,
@@ -43,14 +46,13 @@ require('cokeline').setup({
         {
             text = function(buffer) return buffer.filename .. ' ' end,
         },
+        -- {
+        --     text = '',
+        --     fg = function(buffer) return getSecondary(buffer) end,
+        --     bg = function(buffer) return getBackground(buffer) end,
+        -- },
         {
-            text = '',
-            fg = function(buffer) return getSecondary(buffer) end,
-            bg = function(buffer) return getBackground(buffer) end,
-        },
-        {
-            text = ' ',
-            bg = function(buffer) return getBackground(buffer) end,
+            text = ' '
         }
     },
 })
