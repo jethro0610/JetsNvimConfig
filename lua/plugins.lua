@@ -23,6 +23,7 @@ return require('packer').startup(function()
     }
     use({
         'willothy/nvim-cokeline',
+        commit = '8b877a972337623f3f28f85a71611b2a08911b3a',
         requires = {
           "nvim-lua/plenary.nvim",        -- Required for v0.4.0+
           "kyazdani42/nvim-web-devicons", -- If you want devicons
