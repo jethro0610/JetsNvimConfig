@@ -8,6 +8,7 @@ vim.wo.number = true
 vim.o.clipboard = 'unnamedplus'
 vim.o.updatetime = 300
 vim.o.termguicolors = true
+vim.wo.relativenumber = true
 
 vim.keymap.set('n', '<C-s>', ':w<CR>')
 vim.keymap.set('n', '<C-x>', ':bd<CR>', { silent = true})
