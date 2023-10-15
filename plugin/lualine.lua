@@ -4,7 +4,8 @@ require('lualine').setup {
         section_separators = { left = '', right = ''},
     },
     sections = {
+        lualine_c = {},
         lualine_x = {'filetype'},
         lualine_y = {}
-    }
+    },
 }
