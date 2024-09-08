@@ -3,8 +3,8 @@ local lsp = require 'lspconfig'
 
 vim.opt.signcolumn = 'yes'
 lsp.clangd.setup{}
-lsp.tsserver.setup{}
 lsp.pyright.setup{}
+lsp.lua_ls.setup{}
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
