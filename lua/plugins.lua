@@ -1,6 +1,7 @@
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
     use 'sainnhe/gruvbox-material'
+    use 'neanias/everforest-nvim'
     use 'neovim/nvim-lspconfig'
 
     use 'hrsh7th/cmp-nvim-lsp'
