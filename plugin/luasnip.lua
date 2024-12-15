@@ -27,18 +27,8 @@ ls.add_snippets("cpp", {
             void Init(InitArgs args);
 
             static TypeID TYPEID;
-            static constexpr const char* GetName() {{ return "e_{}"; }}
-            static EntityDependendies GetDeps();
-            EntityProperties GetProperties();
-
-            void Update() {{}}; 
-            void RenderUpdate() {{}};
-            void OnHit(HitArgs args) {{}};
-            void OnHurt(HurtArgs args) {{}};
-            void OnCaptureSeed() {{}};
-            void OnDestroy() {{}};
-            void OnPush(glm::vec3 pushVec) {{}};
-            void OnOverlap(Entity* overlappedEntity) {{}};
+            static const char* GetStaticName() {{ return "e_{}"; }}
+            static EntityDependendies GetStaticDependencies();
         }};
         ]]
         ,
@@ -51,29 +41,13 @@ ls.add_snippets("cpp", {
         #include "Resource/ResourceManager.h"
         using namespace glm;
 
-        EntityDependendies {}::GetDeps() {{
+        EntityDependendies {}::GetStaticDependencies() {{
             return {{
                 "st_tpillar"
             }};
         }}
 
-        EntityProperties {}::GetProperties() {{
-            return {{
-                {{
-
-                }},
-                {{
-
-                }},
-                {{
-
-                }}
-            }};
-        }}
-
         void {}::Init(Entity::InitArgs args) {{
-            Entity::Init(args);
-
             ResourceManager& resourceManager = args.resourceManager;
             model_ = resourceManager.GetModel("st_tpillar");
             materials_[0].shader = resourceManager.GetShader("vs_static", "fs_dfsa_color");
@@ -86,7 +60,7 @@ ls.add_snippets("cpp", {
             pushbox_.radius = 1.0f;
         }}
         ]],
-        { i(1, "EntityClassName"), rep(1), rep(1), rep(1) }
+        { i(1, "EntityClassName"), rep(1), rep(1) }
     )),
 
     snippet("for-i=0", fmt(
